@@ -11,8 +11,8 @@ from rclpy_param_helper import Dict2ROS2Params, ROS2Params2Dict
 class MyNode(Node):
     def __init__(self):
         super().__init__('mynode', 
-                         allow_undeclared_parameters=True, 
-                         automatically_declare_parameters_from_overrides=True)
+                         allow_undeclared_parameters=True, # necessary for using set_parameters
+                         automatically_declare_parameters_from_overrides=True) # allows command line parameters
 
         # Read ROS2 parameters the user may have set 
         # E.g. (https://docs.ros.org/en/galactic/How-To-Guides/Node-arguments.html):
